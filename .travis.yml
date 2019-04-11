@@ -5,7 +5,6 @@ cache:
     - node_modules
 install:
   - yarn
-  - npm install -g netlify-cli
 script:
   - yarn test --coverage
   - yarn build
