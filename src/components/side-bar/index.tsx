@@ -17,7 +17,7 @@ import { faFolder } from '@fortawesome/free-regular-svg-icons';
 
 // import Collapse from '@material-ui/core/Collapse';
 
-import './sb-admin.css';
+import '../../assets/css/sb-admin.css';
 
 const SideBar: React.FC<{}> = () => {
   const [isDropDownOpen, setDropDownOpen] = useState(false);
