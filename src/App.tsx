@@ -1,28 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import * as React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+import { BodyContainer } from './components/body-container';
+import { FlexWrapper } from './components/flex-wrapper';
+import { FormAddUser } from './components/form-add-user';
+import { ImagePreviewer } from './components/pages/image-previewer';
+import { SideBar } from './components/side-bar';
+
+import { items } from './items';
+
+const App: React.FC<{}> = () => (
+  <Router>
+    <FlexWrapper>
+      <SideBar />
+      <BodyContainer>
+        <div className="container-fluid">
+          <Route exact path="/" component={FormAddUser} />
+          <Route
+            path="/image-previewer"
+            render={() => <ImagePreviewer items={items} />}
+          />
+        </div>
+      </BodyContainer>
+    </FlexWrapper>
+  </Router>
+);
 
 export default App;
