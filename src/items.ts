@@ -1,3 +1,5 @@
+import example from './assets/img/example.png';
+
 export const items = [
   {
     src:
@@ -6,7 +8,7 @@ export const items = [
     caption: 'Slide 1',
   },
   {
-    src: 'https://cdn.smct.co/17746-682.png',
+    src: example,
     altText: 'Slide 2',
     caption: 'Slide 2',
   },
