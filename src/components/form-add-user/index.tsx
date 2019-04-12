@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Form,
@@ -9,18 +10,13 @@ import {
 } from 'reactstrap';
 import { Form as FinalForm, Field } from 'react-final-form';
 
-// import { InputBootstrap } from '../input-bootstrap';
-
-const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
-const onSubmit = async (values: any) => {
-  await sleep(300);
-  window.alert(JSON.stringify(values, null, 2));
-};
-
 const required = (value: string) => (value ? undefined : 'Required');
 
-const FormAddUser: React.FC<{}> = () => (
+type Props = {
+  onSubmit: any,
+};
+
+const FormAddUser = ({ onSubmit }: Props) => (
   <FinalForm onSubmit={onSubmit}>
     {formState => {
       const { handleSubmit, submitting } = formState;
@@ -28,9 +24,10 @@ const FormAddUser: React.FC<{}> = () => (
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Label for="exampleEmail">Email</Label>
-            <Field name="email" validate={required}>
+            <Field name="user" validate={required}>
               {({ input, meta }) => (
                 <>
+                  {/* Warning, meta is sending props through to the dom */}
                   <Input
                     type="email"
                     id="exampleEmail"
@@ -50,6 +47,7 @@ const FormAddUser: React.FC<{}> = () => (
             <Field name="password" validate={required}>
               {({ input, meta }) => (
                 <>
+                  {/* Warning, meta is sending props through to the dom */}
                   <Input
                     type="password"
                     id="examplePassword"
@@ -65,15 +63,21 @@ const FormAddUser: React.FC<{}> = () => (
             </Field>
           </FormGroup>
           <Button disabled={submitting}>Submit</Button>
-          <h4>Form State</h4>
           {process.env.NODE_ENV === 'development' && (
-            <pre>{JSON.stringify(formState, undefined, 2)}</pre>
+            <>
+              <h4>Form State</h4>
+              <pre>{JSON.stringify(formState, undefined, 2)}</pre>
+            </>
           )}
         </Form>
       );
     }}
   </FinalForm>
 );
+
+FormAddUser.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export { FormAddUser };
 export default FormAddUser;

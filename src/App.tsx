@@ -6,7 +6,7 @@ import './App.css';
 
 import { BodyContainer } from './components/body-container';
 import { FlexWrapper } from './components/flex-wrapper';
-import { FormAddUser } from './components/form-add-user';
+import { PageAddUser } from './components/pages/add-user';
 import { ImagePreviewer } from './components/pages/image-previewer';
 import { PageHome } from './components/pages/home';
 import { SideBar } from './components/side-bar';
@@ -31,7 +31,7 @@ const App: React.FC<{}> = () => (
             })}
           >
             <Route exact path="/" component={PageHome} />
-            <Route path="/add-user" component={FormAddUser} />
+            <Route path="/add-user" component={PageAddUser} />
             <Route
               path="/image-previewer"
               render={() => <ImagePreviewer items={items} />}
