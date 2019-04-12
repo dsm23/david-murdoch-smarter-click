@@ -22,9 +22,8 @@ import {
   faUser,
 } from '@fortawesome/free-regular-svg-icons';
 
-// import Collapse from '@material-ui/core/Collapse';
+import '../../assets/scss/sb-admin.scss';
 
-import '../../assets/css/sb-admin.css';
 import { ROUTER } from '../../constants';
 
 const SideBarForRouter = ({ location: { pathname } }: RouteComponentProps) => {
