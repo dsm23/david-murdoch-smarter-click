@@ -1,5 +1,5 @@
 export const initialUsers = {
-  user: 'david',
+  user: 'dsmurdoch357@gmail.com',
   password: 'Password1!',
 };
 
