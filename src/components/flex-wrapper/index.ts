@@ -4,6 +4,7 @@ const FlexWrapper = styled('div')`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 104px;
 `;
 
 export { FlexWrapper };

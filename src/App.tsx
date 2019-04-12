@@ -9,6 +9,7 @@ import { FlexWrapper } from './components/flex-wrapper';
 import { PageAddUser } from './components/pages/add-user';
 import { ImagePreviewer } from './components/pages/image-previewer';
 import { PageHome } from './components/pages/home';
+import { Header } from './components/header';
 import { SideBar } from './components/side-bar';
 
 import { ContextUsers } from './contexts';
@@ -22,6 +23,7 @@ import { items } from './items';
 const App: React.FC<{}> = () => (
   <Router>
     <FlexWrapper>
+      <Header />
       <SideBar />
       <BodyContainer>
         <Container fluid>
