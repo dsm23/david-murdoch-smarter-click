@@ -1,7 +1,15 @@
 import * as React from 'react';
+import { useReducer } from 'react';
 import PropTypes from 'prop-types';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+import Viewer from 'react-viewer';
+import { Col, Row } from 'reactstrap';
+
+import 'react-viewer/dist/index.css';
+
+type State = {
+  activeIndex: number | undefined,
+  isVisible: boolean,
+};
 
 type Props = {
   items: {
@@ -9,17 +17,69 @@ type Props = {
     altText: string,
     caption?: string,
   }[],
+  initialState: State,
 };
 
-const ImagePreviewer = ({ items }: Props) => (
-  <Carousel>
-    {items.map(({ src, altText }) => (
-      <div key={src}>
-        <img src={src} alt={altText} />
-      </div>
-    ))}
-  </Carousel>
-);
+type ActionType = {
+  type: 'openPreviewer' | 'closePreviewer',
+  newIndex?: number,
+};
+
+function reducer(state: State, action: ActionType): State {
+  switch (action.type) {
+    case 'openPreviewer':
+      return { isVisible: true, activeIndex: action.newIndex };
+    case 'closePreviewer':
+      return { ...state, isVisible: false };
+    default:
+      throw new Error();
+  }
+}
+
+const ImagePreviewer = ({ initialState, items }: Props) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { isVisible, activeIndex } = state;
+
+  return (
+    <div>
+      <Row>
+        {items.map(({ src, altText }, index) => (
+          <Col key={src}>
+            <img
+              src={src}
+              className="img-thumbnail"
+              style={{ cursor: 'pointer' }}
+              alt={altText}
+              onClick={() =>
+                dispatch({
+                  type: 'openPreviewer',
+                  newIndex: index,
+                })
+              }
+            />
+          </Col>
+        ))}
+      </Row>
+      <Viewer
+        activeIndex={activeIndex}
+        visible={isVisible}
+        onClose={() =>
+          dispatch({
+            type: 'closePreviewer',
+          })
+        }
+        images={items.map(({ src, altText }) => ({ src, alt: altText }))}
+      />
+    </div>
+  );
+};
+
+ImagePreviewer.defaultProps = {
+  initialState: {
+    activeIndex: 0,
+    isVisible: false,
+  },
+};
 
 ImagePreviewer.propTypes = {
   items: PropTypes.arrayOf(
@@ -29,6 +89,10 @@ ImagePreviewer.propTypes = {
       caption: PropTypes.string.isRequired,
     }),
   ),
+  initialState: PropTypes.shape({
+    activeIndex: PropTypes.number,
+    isVisible: PropTypes.bool,
+  }),
 };
 
 export { ImagePreviewer };

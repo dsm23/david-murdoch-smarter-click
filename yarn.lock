@@ -8579,13 +8579,6 @@ react-dom@^16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
-react-easy-swipe@^0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/react-easy-swipe/-/react-easy-swipe-0.0.16.tgz#5a3d949a8f975d05be92a818254315d1318a81ea"
-  integrity sha1-Wj2Umo+XXQW+kqgYJUMV0TGKgeo=
-  dependencies:
-    prop-types "^15.5.8"
-
 react-error-overlay@^5.1.4:
   version "5.1.4"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.4.tgz#88dfb88857c18ceb3b9f95076f850d7121776991"
@@ -8619,15 +8612,6 @@ react-popper@^1.3.3:
     prop-types "^15.6.1"
     typed-styles "^0.0.7"
     warning "^4.0.2"
-
-react-responsive-carousel@^3.1.47:
-  version "3.1.47"
-  resolved "https://registry.yarnpkg.com/react-responsive-carousel/-/react-responsive-carousel-3.1.47.tgz#0d1442284e2c45854d81bc2f0c24d0f838d274b6"
-  integrity sha512-mA8ZEUGk5UIFskZTa4Tc3dhs7pln+nHxpoOnUhkprr9xK7BSGBfJcHT+EQIrmVNXGKln8t5kzKv3EaXdIaN/Cg==
-  dependencies:
-    classnames "^2.2.5"
-    prop-types "^15.5.8"
-    react-easy-swipe "^0.0.16"
 
 react-router-dom@^5.0.0:
   version "5.0.0"
@@ -8729,6 +8713,13 @@ react-transition-group@^2.3.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
+
+react-viewer@^2.8.1:
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/react-viewer/-/react-viewer-2.8.1.tgz#f479f88c5d051b3440982d4ffca7c80fed6b66e0"
+  integrity sha512-hQVgmpYKuvpwivvZWKuMVndNQbTkoRV6ZUvx4pJ4eupV599Tl+X46thfpF02+iNwOhWHh3Zm3re8P3bVEKEedg==
+  dependencies:
+    classnames "^2.2.5"
 
 react@^16.8.6:
   version "16.8.6"
