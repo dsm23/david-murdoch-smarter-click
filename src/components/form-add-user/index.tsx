@@ -27,13 +27,13 @@ const FormAddUser = ({ onSubmit }: Props) => (
             <Field name="user" validate={required}>
               {({ input, meta }) => (
                 <>
-                  {/* Warning, meta is sending props through to the dom */}
                   <Input
                     type="email"
                     id="exampleEmail"
                     placeholder="with a placeholder"
                     {...input}
-                    {...meta}
+                    invalid={meta.invalid}
+                    valid={meta.valid}
                   />
                   {meta.touched && meta.error && (
                     <FormFeedback>{meta.error}</FormFeedback>
@@ -47,13 +47,13 @@ const FormAddUser = ({ onSubmit }: Props) => (
             <Field name="password" validate={required}>
               {({ input, meta }) => (
                 <>
-                  {/* Warning, meta is sending props through to the dom */}
                   <Input
                     type="password"
                     id="examplePassword"
                     placeholder="password placeholder"
                     {...input}
-                    {...meta}
+                    invalid={meta.invalid}
+                    valid={meta.valid}
                   />
                   {meta.touched && meta.error && (
                     <FormFeedback>{meta.error}</FormFeedback>
@@ -62,7 +62,9 @@ const FormAddUser = ({ onSubmit }: Props) => (
               )}
             </Field>
           </FormGroup>
-          <Button disabled={submitting}>Submit</Button>
+          <Button type="submit" disabled={submitting}>
+            Submit
+          </Button>
           {process.env.NODE_ENV === 'development' && (
             <>
               <h4>Form State</h4>
