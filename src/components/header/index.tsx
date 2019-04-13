@@ -4,12 +4,14 @@ import styled from 'styled-components';
 
 import image from '../../assets/img/smarterClick.png';
 
+import { THEME } from '../../constants';
+
 const List = styled('ul')({
   listStyleType: 'none',
   margin: 0,
   padding: 0,
   overflow: 'hidden',
-  backgroundColor: '#333',
+  backgroundColor: THEME.MAIN,
   top: 0,
   width: '100%',
   position: 'fixed',
@@ -25,6 +27,10 @@ const ListItem = styled('li')({
     textAlign: 'center',
     padding: '14px 16px',
     textDecoration: 'none',
+    '@media only screen and (max-width: 768px)': {
+      transform: 'scale(0.75)',
+      transformOrigin: '0% 50%',
+    },
   },
 });
 

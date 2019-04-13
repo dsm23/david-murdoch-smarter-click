@@ -5,20 +5,6 @@ import { initialUsers } from '../constants';
 
 import { UsersState } from '../types';
 
-const ContextUsers = createContext<[UsersState, any]>([
-    { users: [initialUsers] },
-    () => {},
-  ]);
-
-// const ContextUsers =
-//   createContext<{}
-//   [UsersState, any] >
-//   [
-//     {
-//       users: initialUsers,
-//     },
-//     () => {},
-//   ];
-
-export { ContextUsers };
-export default ContextUsers;
+export const ContextUsers = createContext<[UsersState, any]>(
+  [{ users: [initialUsers] }, () => {}]
+);
