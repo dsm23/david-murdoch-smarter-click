@@ -1,5 +1,6 @@
 export interface UserState {
-  user: string;
+  email: string;
+  username: string;
   password: string;
 }
 

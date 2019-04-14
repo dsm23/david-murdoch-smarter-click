@@ -18,10 +18,14 @@ import { ROUTER } from '../../../constants';
 
 import { ContextUsers } from '../../../contexts';
 
+type Values = {
+  passwordMatch: string,
+};
+
 const PageAddUser = ({ history }: RouteComponentProps) => {
   const addUser = useContext(ContextUsers)[1];
 
-  const onSubmit = (values: object) => {
+  const onSubmit = ({ passwordMatch, ...values }: Values) => {
     addUser({
       users: [values],
     });

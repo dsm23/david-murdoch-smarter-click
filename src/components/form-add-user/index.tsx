@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import {
   Button,
   Form,
@@ -10,27 +11,63 @@ import {
 } from 'reactstrap';
 import { Form as FinalForm, Field } from 'react-final-form';
 
-const required = (value: string) => (value ? undefined : 'Required');
-
 type Props = {
   onSubmit: any,
 };
 
+type Errors = {
+  passwordMatch?: string,
+};
+
+type Values = {
+  password?: string,
+  passwordMatch?: string,
+};
+
+const required = (value: string) => (value ? undefined : 'Required');
+
+const formValidation = ({ password, passwordMatch }: Values) => {
+  let errors: Errors = {};
+  if (password !== passwordMatch) {
+    errors.passwordMatch = 'Passwords do not match';
+  }
+  return errors;
+};
+
 const FormAddUser = ({ onSubmit }: Props) => (
-  <FinalForm onSubmit={onSubmit}>
+  <FinalForm onSubmit={onSubmit} validate={formValidation}>
     {formState => {
       const { handleSubmit, submitting } = formState;
       return (
         <Form onSubmit={handleSubmit}>
           <FormGroup>
+            <Label for="name">Username</Label>
+            <Field name="username" validate={required}>
+              {({ input, meta }) => (
+                <>
+                  <Input
+                    id="name"
+                    placeholder="Enter username"
+                    {...input}
+                    invalid={meta.invalid}
+                    valid={meta.valid}
+                  />
+                  {meta.touched && meta.error && (
+                    <FormFeedback>{meta.error}</FormFeedback>
+                  )}
+                </>
+              )}
+            </Field>
+          </FormGroup>
+          <FormGroup>
             <Label for="exampleEmail">Email</Label>
-            <Field name="user" validate={required}>
+            <Field name="email" validate={required}>
               {({ input, meta }) => (
                 <>
                   <Input
                     type="email"
                     id="exampleEmail"
-                    placeholder="with a placeholder"
+                    placeholder="Enter email"
                     {...input}
                     invalid={meta.invalid}
                     valid={meta.valid}
@@ -50,7 +87,7 @@ const FormAddUser = ({ onSubmit }: Props) => (
                   <Input
                     type="password"
                     id="examplePassword"
-                    placeholder="password placeholder"
+                    placeholder="Enter password"
                     {...input}
                     invalid={meta.invalid}
                     valid={meta.valid}
@@ -62,7 +99,27 @@ const FormAddUser = ({ onSubmit }: Props) => (
               )}
             </Field>
           </FormGroup>
-          <Button type="submit" disabled={submitting}>
+          <FormGroup>
+            <Label for="examplePasswordMatch">Re-enter Password</Label>
+            <Field name="passwordMatch" validate={required}>
+              {({ input, meta }) => (
+                <>
+                  <Input
+                    type="password"
+                    id="examplePasswordMatch"
+                    placeholder="Re-enter password"
+                    {...input}
+                    invalid={meta.invalid}
+                    valid={meta.valid}
+                  />
+                  {meta.touched && meta.error && (
+                    <FormFeedback>{meta.error}</FormFeedback>
+                  )}
+                </>
+              )}
+            </Field>
+          </FormGroup>
+          <Button type="submit" color="primary" disabled={submitting}>
             Submit
           </Button>
           {process.env.NODE_ENV === 'development' && (
