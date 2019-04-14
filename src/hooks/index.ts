@@ -3,9 +3,12 @@ import { useReducer } from 'react';
 
 import { UsersState } from '../types';
 
-const reducer = ({ users }: UsersState, { users: newUser}: UsersState) => ({
+const reducerAddUser = (
+  { users }: UsersState,
+  { users: newUser }: UsersState,
+) => ({
   users: [...users, ...newUser],
 });
 
 export const useAddUser = (initialState: UsersState): [UsersState, any] =>
-  useReducer(reducer, initialState);
+  useReducer(reducerAddUser, initialState);

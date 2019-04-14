@@ -43,7 +43,7 @@ const App: React.FC<{}> = () => {
         onSetOpen={handleSideBarOpen}
         styles={{
           content: {
-            background: THEME.BACKGROUND1,
+            background: THEME.BACKGROUND_1,
             paddingTop: '15px',
             top: `${HEADER_HEIGHT}px`,
           },

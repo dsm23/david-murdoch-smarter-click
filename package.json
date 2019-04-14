@@ -19,10 +19,10 @@
     "react-cache": "^2.0.0-alpha.1",
     "react-dom": "^16.8.6",
     "react-final-form": "^4.1.0",
-    "react-responsive-carousel": "^3.1.47",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
     "react-sidebar": "^3.0.2",
+    "react-viewer": "^2.8.1",
     "reactstrap": "^8.0.0",
     "styled-components": "^4.2.0",
     "the-platform": "^0.10.1"
