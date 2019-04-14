@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import cn from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -47,4 +45,4 @@ const SideBarForRouter = ({ location: { pathname }, onClick }: Props) => (
 );
 
 export const SideBar = withRouter(SideBarForRouter);
-export default withRouter(SideBarForRouter);
+export default SideBar;

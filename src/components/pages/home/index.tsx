@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { useContext } from 'react';
+import { Col, Row } from 'reactstrap';
+
+import { Revenue, UserImpressions } from '../../charts';
 
 import { ContextUsers } from '../../../contexts';
 
@@ -15,6 +18,16 @@ const PageHome = () => {
           </li>
         ))}
       </ul>
+      <Row>
+        <Col style={{ height: 400 }}>
+          <h2>Revenue</h2>
+          <Revenue />
+        </Col>
+        <Col style={{ height: 400 }}>
+          <h2>User Impressions</h2>
+          <UserImpressions />
+        </Col>
+      </Row>
     </>
   );
 };
