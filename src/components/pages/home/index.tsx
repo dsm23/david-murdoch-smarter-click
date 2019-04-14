@@ -2,7 +2,9 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { Col, Row } from 'reactstrap';
 
-import { Revenue, UserImpressions } from '../../charts';
+import { Revenue, OverlaysHappyPath, UserImpressions } from '../../charts';
+
+// import { THEME } from '../../../constants';
 
 import { ContextUsers } from '../../../contexts';
 
@@ -18,15 +20,32 @@ const PageHome = () => {
           </li>
         ))}
       </ul>
-      <Row>
-        <Col style={{ height: 400 }}>
-          <h2>Revenue</h2>
-          <Revenue />
-        </Col>
-        <Col style={{ height: 400 }}>
-          <h2>User Impressions</h2>
-          <UserImpressions />
-        </Col>
+      <Row className="mt-5">
+        {[
+          {
+            title: 'Revenue',
+            chart: <Revenue />,
+          },
+          {
+            title: 'User Impressions',
+            chart: <UserImpressions />,
+          },
+          {
+            title: 'Overlays Happy Path',
+            chart: <OverlaysHappyPath />,
+          },
+        ].map(({ title, chart }) => (
+          <Col key={title}>
+            <div className="card mb-3">
+              <div className="card-header">
+                <h4>{title}</h4>
+              </div>
+              <div className="card-body" style={{ height: 400 }}>
+                {chart}
+              </div>
+            </div>
+          </Col>
+        ))}
       </Row>
     </>
   );

@@ -1,12 +1,7 @@
 import React from 'react';
-// import { generateDrinkStats } from '@nivo/generators';
 import { ResponsiveLine } from '@nivo/line';
 
 import { THEME } from '../../../constants';
-
-// const data = generateDrinkStats(18);
-
-// const curveOptions = ['linear', 'monotoneX', 'step', 'stepBefore', 'stepAfter'];
 
 const CustomSymbol = ({ size, color, borderWidth, borderColor }) => (
   <g>
@@ -82,9 +77,6 @@ const Revenue = () => {
     />
   );
 };
-
-//      curve="curve"
-//       dotSymbol={CustomSymbol}
 
 export { Revenue };
 export default Revenue;

@@ -1029,6 +1029,19 @@
     react-motion "^0.5.2"
     recompose "^0.30.0"
 
+"@nivo/sankey@^0.55.0":
+  version "0.55.0"
+  resolved "https://registry.yarnpkg.com/@nivo/sankey/-/sankey-0.55.0.tgz#f92b13923b4f882587efecb354d192d8c50c67f3"
+  integrity sha512-mFWqyvjJzW9aTBsf1XyWNwXZYWqOcA7qeVRKyGi/v+4khP7d3QTFaEZP0XnYwqpelp1n/XvEdtEFcah/NW8r+A==
+  dependencies:
+    "@nivo/core" "0.55.0"
+    "@nivo/legends" "0.55.0"
+    d3-sankey "^0.12.1"
+    d3-shape "^1.3.5"
+    lodash "^4.17.4"
+    react-motion "^0.5.2"
+    recompose "^0.30.0"
+
 "@nivo/scales@0.55.0":
   version "0.55.0"
   resolved "https://registry.yarnpkg.com/@nivo/scales/-/scales-0.55.0.tgz#ee8793d6c876b032c99f46a90b2ea40ee77b2731"
@@ -3280,6 +3293,11 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
+"d3-array@>=1 <=2":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-2.0.3.tgz#9c0531eda701e416f28a030e3d4e6179ba74f19f"
+  integrity sha512-C7g4aCOoJa+/K5hPVqZLG8wjYHsTUROTk7Z1Ep9F4P5l+WVrvV0+6nAZ1wKTRLMhFWpGbozxUpyjIPZYAaLi+g==
+
 d3-array@^1.2.0:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-1.2.4.tgz#635ce4d5eea759f6f605863dbcfc30edc737f71f"
@@ -3317,6 +3335,14 @@ d3-path@1:
   resolved "https://registry.yarnpkg.com/d3-path/-/d3-path-1.0.7.tgz#8de7cd693a75ac0b5480d3abaccd94793e58aae8"
   integrity sha512-q0cW1RpvA5c5ma2rch62mX8AYaiLX0+bdaSM2wxSU9tXjU4DNvkx9qiUvjkuWCj3p22UO/hlPivujqMiR9PDzA==
 
+d3-sankey@^0.12.1:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/d3-sankey/-/d3-sankey-0.12.1.tgz#f4a655227ee90211befcd32074aeb275e73f92ba"
+  integrity sha512-2DF8aj52Zkghfl06yCsCJUW/p8ChQND0+p1Xx3DiQIvABp4XazvyMAppgGRjJGwK2tkVYtpI1IgFIlMppBZMhg==
+  dependencies:
+    d3-array ">=1 <=2"
+    d3-shape "^1.2.0"
+
 d3-scale-chromatic@^1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/d3-scale-chromatic/-/d3-scale-chromatic-1.3.3.tgz#dad4366f0edcb288f490128979c3c793583ed3c0"
@@ -3337,7 +3363,7 @@ d3-scale@^2.1.2:
     d3-time "1"
     d3-time-format "2"
 
-d3-shape@^1.3.5:
+d3-shape@^1.2.0, d3-shape@^1.3.5:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/d3-shape/-/d3-shape-1.3.5.tgz#e81aea5940f59f0a79cfccac012232a8987c6033"
   integrity sha512-VKazVR3phgD+MUCldapHD7P9kcrvPcexeX/PkMJmkUov4JM8IxsSg1DvbYoYich9AtdTsa5nNk2++ImPiDiSxg==
