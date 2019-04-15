@@ -39,7 +39,7 @@ const App: React.FC<{}> = () => {
       <Sidebar
         sidebar={<SideBarContent onClick={handleClick} />}
         open={open}
-        docked={width > 500}
+        docked={width > 768}
         onSetOpen={handleSideBarOpen}
         styles={{
           content: {

@@ -31,7 +31,7 @@ const PageHome = () => {
       <TableUsers users={users} />
       <Row className="mt-5">
         {charts.map(({ title, chart }) => (
-          <Col key={title}>
+          <Col sm="12" key={title}>
             <div className="card mb-3">
               <div className="card-header">
                 <h4>{title}</h4>
