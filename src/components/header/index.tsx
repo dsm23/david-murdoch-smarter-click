@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import image from '../../assets/img/smarterClick.png';
 
-import { THEME } from '../../constants';
+import { MOBILE, THEME } from '../../constants';
 
 const List = styled('ul')({
   listStyleType: 'none',
@@ -27,7 +27,7 @@ const ListItem = styled('li')({
     textAlign: 'center',
     padding: '14px 16px',
     textDecoration: 'none',
-    '@media only screen and (max-width: 768px)': {
+    [MOBILE]: {
       transform: 'scale(0.75)',
       transformOrigin: '0% 50%',
     },

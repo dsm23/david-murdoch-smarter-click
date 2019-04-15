@@ -12,6 +12,8 @@ export const ROUTER = {
 
 export const HEADER_HEIGHT = 104;
 
+export const MOBILE = '@media only screen and (max-width: 768px)';
+
 export const THEME = {
   MAIN: '#EC6952',
   BACKGROUND_1: '#EDF3F9',
